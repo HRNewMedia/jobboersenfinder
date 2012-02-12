@@ -1,0 +1,11 @@
+h1
+
+ul id='top_actions' class='actions'
+  li= link_to [:backend, :platforms], :class => 'back', title: 'back to index' do
+    span Back
+
+= render partial: 'form'
+
+ul id='bottom_actions' class='actions'
+  li= link_to [:backend, :platforms], :class => 'back', :title => 'back to index' do
+    span Back

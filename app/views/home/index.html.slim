@@ -1,0 +1,30 @@
+#flash
+  = link_to 'http://www.adobe.com/go/getflashplayer' do
+    = image_tag 'http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif', alt: 'Get Adobe Flash player', border: 0
+
+= javascript_include_tag 'swfobject/swfobject'
+
+javascript:
+  var URL="/assets/1000jobboersen.swf";
+  var flashID = "flash";
+  var width = "940";
+  var height = "1100";
+  var flashVersion = "10.0.0";
+  var expressInstallURL = "/assets/swfobject/expressInstall.swf";
+
+  var flashvars = {
+    facetsURL:"/data/facets.json",
+    detailsURL:"/data/platform/{0}.json",
+    tileSpacing:8
+  };
+
+  var params = {
+  };
+
+  var attributes = {
+    background:"#DAE3EB"
+  };
+
+  swfobject.embedSWF(URL, flashID, width, height, flashVersion, expressInstallURL, flashvars, params, attributes);
+
+script type="text/javascript" src="/assets/swfaddress/swfaddress.js"

@@ -1,0 +1,39 @@
+html
+  head
+    meta http-equiv="content-type" content="text/html;charset=UTF-8"
+    meta name='description' content='Die erste Jobbörsen-Übersicht aller deutschen Online-Jobbörsen. Finden Sie die passenden Jobbörsen für Ihre Stellenanzeige.'
+    title= page_title
+    = stylesheet_link_tag 'application'
+    /[if IE 6]
+      = javascript_include_tag "DD_belatedPNG_0.0.8a.js"
+      javascript:
+        DD_belatedPNG.fix('.pngfix');
+  body
+    #wrapper
+      #no-footer
+        #header
+          = render :partial => "shared/social_bookmarks"
+          #logo
+            h1
+              = link_to root_path do
+                span Jobbörsenfinder
+          #tjb
+            #tjb-logo
+              = link_to 'http://1000jobboersen.de', target: '_blank', title: '1000 Jobbörsen' do
+                span 1000jobboersen.de
+        #main
+          #view= yield
+        #divider
+      #footer
+        #footer-top
+          #footer-content
+            .float-left
+              = render :partial => "shared/social_bookmarks"
+            .float-right
+              ul#footer-nav
+                li.first
+                  = mail_to 'info@1000jobboersen.de', 'Plattform vorschlagen', encode: :hex
+                li
+                  = link_to 'Impressum', imprint_path
+            .clearfix
+    = render :partial => "shared/google_analytics_tracking"

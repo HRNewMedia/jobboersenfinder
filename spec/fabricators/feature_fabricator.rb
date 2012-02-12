@@ -1,0 +1,2 @@
+Fabricator(:feature) do
+end

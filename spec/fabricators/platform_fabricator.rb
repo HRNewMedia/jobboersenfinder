@@ -1,0 +1,2 @@
+Fabricator(:platform) do
+end

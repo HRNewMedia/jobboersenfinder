@@ -1,0 +1,2 @@
+Fabricator(:kind) do
+end

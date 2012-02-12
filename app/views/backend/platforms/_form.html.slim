@@ -1,0 +1,26 @@
+= simple_form_for [:backend, platform], html: { multipart: true } do |f|
+  = f.input :name
+  - unless platform.logo.blank?
+    li
+      = image_tag platform.logo.url
+  = f.input :logo, :as => :file
+  = f.input :description
+  = f.input :url, :hint => "Syntax: http://www.domain.com"
+  = f.input :activity, :hint => "Numeric activity value."
+  = f.input :rank, :collection => Platform.rank_collection
+  = f.input :coverage
+  = f.input :is_filterable, :hint => "in the frontend."
+  = f.input :is_published, :hint => "in the frontend."
+  hr
+  = f.input :occupational_fields, :as => :check_boxes, collection: Field.all
+  = f.input :specialized_occupational_fields, :as => :check_boxes, collection: Field.all
+  hr
+  = f.input :kinds, :as => :check_boxes, collection: Kind.all
+  = f.input :supporter_id, :as => :select, :collection => Platform.where(:id.ne => platform.id), :hint => "Defines a supporter for this platform."
+  hr
+  = f.input :employment_types, :as => :check_boxes, collection: EmploymentType.all
+  = f.input :is_specialized, :hint => "on selected employment_types."
+  hr
+  = f.input :features, :as => :check_boxes, collection: Feature.all
+  hr
+  = f.button :submit

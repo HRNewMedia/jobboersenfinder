@@ -1,0 +1,2 @@
+Fabricator(:field) do
+end
