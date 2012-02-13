@@ -1,8 +1,6 @@
 class PlatformsController < ApplicationController
   respond_to :json
 
-  caches_page :index
-
   expose(:platforms) do
     Platform.published.includes([
       :employment_types, :kinds, :occupational_fields,
