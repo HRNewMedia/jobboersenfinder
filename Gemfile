@@ -12,7 +12,6 @@ gem 'rack-cache'
 gem 'rails'
 gem 'simple_form'
 gem 'slim'
-gem 'taps'
 gem 'unicorn'
 gem 'yajl-ruby', :require => 'yajl'
 
@@ -31,4 +30,9 @@ end
 group :test do
   gem 'rspec-rails'
   gem 'fabrication'
+end
+
+group :development do
+  gem 'taps'
+  gem 'heroku'
 end
