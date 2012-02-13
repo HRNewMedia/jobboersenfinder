@@ -1,0 +1,8 @@
+<%=
+  raw({
+    platforms: Yajl::Parser.parse(yield),
+    occupational_fields: Field.all.as_json(only: [:name, :id]),
+    kinds: Kind.all.as_json(only: [:name, :id]),
+    employment_types: EmploymentType.all.as_json(only: [:name, :id])
+  }.to_json)
+%>

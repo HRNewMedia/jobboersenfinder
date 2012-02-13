@@ -1,0 +1,5 @@
+<%=
+  raw({
+    platforms: Yajl::Parser.parse(yield),
+  }.to_json)
+%>
