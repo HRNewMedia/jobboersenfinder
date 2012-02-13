@@ -65,7 +65,7 @@ module Jbb
       g.fixture_replacement :fabrication, dir: 'spec/fabricators'
       g.templating_engine   :slim
       g.test_framework      :rspec
-      g.orm                 :mongoid
+      g.orm                 :active_record
     end
   end
 end

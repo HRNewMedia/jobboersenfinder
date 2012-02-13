@@ -1,10 +1,8 @@
-class Kind
-  include Mongoid::Document
-  include Mongoid::Timestamps
+class Kind < ActiveRecord::Base
 
-  field :name
+  default_scope order: 'kinds.name ASC'
 
-  references_and_referenced_in_many :platforms
+  has_and_belongs_to_many :platforms
 
   validates_uniqueness_of :name
   validates_presence_of :name, case_sensitive: false

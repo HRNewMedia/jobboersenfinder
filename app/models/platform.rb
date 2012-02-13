@@ -1,35 +1,31 @@
-class Platform
-  include Mongoid::Document
-  include Mongoid::Timestamps
+class Platform < ActiveRecord::Base
 
-  field :name
-  field :description
-  field :url
-  field :activity, type: Integer
-  field :rank, type: Integer
-  field :is_specialized, type: Boolean
-  field :is_filterable, type: Boolean
-  field :is_published, type: Boolean
-  field :coverage
-  field :logo_name
-  field :logo_uid
+  # default ordering
+  default_scope :order => "platforms.name ASC"
 
-  references_and_referenced_in_many :employment_types
-  references_and_referenced_in_many :features
-  references_and_referenced_in_many :kinds
-  references_and_referenced_in_many :occupational_fields, class_name: 'Field'
-  references_and_referenced_in_many :specialized_occupational_fields, class_name: 'Field'
+  # associations
+  has_many :occupationals, :dependent => :destroy
+  has_many :occupational_fields, :through => :occupationals, :source => :field
 
-  references_many :cooperations, class_name: 'Platform', foreign_key: 'supporter_id'
+  has_many :specializations, :dependent => :destroy
+  has_many :specialized_occupational_fields, :through => :specializations, :source => :field
 
-  referenced_in :supporter, class_name: 'Platform'
+  has_and_belongs_to_many :kinds
+  has_and_belongs_to_many :employment_types
+  has_and_belongs_to_many :features
 
-  validates_presence_of :name, :description, :url, :activity, :rank, :logo
-  validates_uniqueness_of :name, case_sensitive: false
+  # supporter/cooperations association
+  has_many :cooperations, :class_name => "Platform", :foreign_key => "supporter_id"
+  belongs_to :supporter,  :class_name => "Platform"
 
-  scope :supported, where(:supporter_id.ne => nil)
-  scope :unsupported, where(supporter_id: nil)
-  scope :published, where(is_published: true)
+  # validations
+  validates_presence_of   :name, :description, :url, :activity, :rank
+  validates_uniqueness_of :name, :case_sensitive => false
+
+  # named scopes
+  scope :supported, conditions: "supporter_id IS NOT NULL"
+  scope :unsupported, conditions: { supporter_id: nil }
+  scope :published, conditions: { is_published: true }
 
   image_accessor :logo
 

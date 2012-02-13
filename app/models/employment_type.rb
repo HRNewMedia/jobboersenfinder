@@ -1,10 +1,8 @@
-class EmploymentType
-  include Mongoid::Document
-  include Mongoid::Timestamps
+class EmploymentType < ActiveRecord::Base
 
-  field :name
+  default_scope order: 'employment_types.name ASC'
 
-  references_and_referenced_in_many :platforms
+  has_and_belongs_to_many :platforms
 
   validates_presence_of :name
   validates_uniqueness_of :name, case_sensitive: false

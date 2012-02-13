@@ -1,0 +1,2 @@
+Fabricator(:specialization) do
+end

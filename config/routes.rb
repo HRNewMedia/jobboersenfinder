@@ -1,10 +1,10 @@
 Jbb::Application.routes.draw do
 
-  devise_for :users
+  # devise_for :users
 
   root to: 'home#index'
 
-  resources :platforms, only: [ :index ]
+  resources :platforms, only: [ :index, :show ]
 
   match 'imprint', to: 'home#imprint'
 

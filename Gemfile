@@ -1,12 +1,11 @@
 source 'https://rubygems.org'
 
-gem 'bson_ext'
 gem 'decent_exposure'
 gem 'devise'
 gem 'dragonfly'
+gem 'jbuilder'
 gem 'jquery-rails'
 gem 'kaminari'
-gem 'mongoid'
 gem 'mysql'
 gem 'rabl'
 gem 'rack-cache'
