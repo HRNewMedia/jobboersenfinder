@@ -47,6 +47,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.2.0)
+    dalli (1.1.4)
     decent_exposure (1.0.1)
     devise (2.0.1)
       bcrypt-ruby (~> 3.0)
@@ -198,6 +199,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
+  dalli
   decent_exposure
   devise
   dragonfly
