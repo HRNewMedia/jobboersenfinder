@@ -11,10 +11,4 @@ Jbb::Application.routes.draw do
   resources :platforms, only: [ :index, :show ]
 
   match 'imprint', to: 'home#imprint'
-
-  namespace :backend do
-    root to: 'platforms#index'
-
-    resources :platforms, :fields, :kinds, :employement_types, :features
-  end
 end
