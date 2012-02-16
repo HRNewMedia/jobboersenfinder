@@ -1,5 +1,9 @@
 ActiveAdmin.register Platform do
 
+  controller do
+    cache_sweeper :platform_sweeper
+  end
+
   index do
     column :name
     column :url
