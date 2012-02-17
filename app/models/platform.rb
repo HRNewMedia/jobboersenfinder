@@ -19,7 +19,7 @@ class Platform < ActiveRecord::Base
   belongs_to :supporter,  :class_name => "Platform"
 
   # validations
-  validates_presence_of   :name, :description, :url, :activity, :rank
+  validates_presence_of   :name, :description, :url, :activity, :rank, :logo
   validates_uniqueness_of :name, :case_sensitive => false
 
   # named scopes
