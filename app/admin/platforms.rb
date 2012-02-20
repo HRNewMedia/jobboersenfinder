@@ -35,6 +35,24 @@ ActiveAdmin.register Platform do
       end
       row :supporter
       row :coverage
+      row :occupational_fields do
+        platform.occupational_fields.map(&:name).sort.join('<br/>').html_safe
+      end
+      row :specialized_occupational_fields do
+        platform.specialized_occupational_fields.map(&:name).sort.join('<br/>').html_safe
+      end
+      row :kinds do
+        platform.kinds.map(&:name).sort.join('<br/>').html_safe
+      end
+      row :employment_types do
+        platform.employment_types.map(&:name).sort.join('<br/>').html_safe
+      end
+      row :features do
+        platform.features.map(&:name).sort.join('<br/>').html_safe
+      end
+      row :cooperations do
+        platform.cooperations.map(&:name).sort.join('<br/>').html_safe
+      end
     end
 
     active_admin_comments
