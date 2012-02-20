@@ -68,6 +68,9 @@ ActiveAdmin.register Platform do
       f.input :rank
       f.input :logo, as: :file
       f.input :coverage
+      f.input :is_published
+      f.input :is_specialized
+      f.input :is_filterable
       f.input :occupational_fields, collection: Field.find(:all, order: 'name asc')
       f.input :specialized_occupational_fields, collection: Field.find(:all, order: 'name asc')
       f.input :kinds, collection: Kind.find(:all, order: 'name asc')
