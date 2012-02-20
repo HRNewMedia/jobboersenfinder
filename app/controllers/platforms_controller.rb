@@ -8,7 +8,7 @@ class PlatformsController < ApplicationController
     Platform.published.includes([
       :employment_types, :kinds, :occupational_fields,
       :specialized_occupational_fields, :features
-    ])
+    ]).order('platforms.name ASC')
   end
 
   expose(:platform) do

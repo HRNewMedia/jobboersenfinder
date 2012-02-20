@@ -1,7 +1,5 @@
 class EmploymentType < ActiveRecord::Base
 
-  default_scope order: 'employment_types.name ASC'
-
   has_and_belongs_to_many :platforms
 
   validates_presence_of :name

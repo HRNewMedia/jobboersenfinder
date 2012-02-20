@@ -1,8 +1,5 @@
 class Platform < ActiveRecord::Base
 
-  # default ordering
-  default_scope :order => "platforms.name ASC"
-
   # associations
   has_many :occupationals, :dependent => :destroy
   has_many :occupational_fields, :through => :occupationals, :source => :field
