@@ -50,6 +50,11 @@ ActiveAdmin.register Platform do
       f.input :rank
       f.input :logo, as: :file
       f.input :coverage
+      f.input :occupational_fields
+      f.input :specialized_occupational_fields
+      f.input :kinds
+      f.input :employment_types
+      f.input :features
     end
     f.buttons
   end
