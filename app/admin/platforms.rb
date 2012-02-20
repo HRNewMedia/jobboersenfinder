@@ -42,7 +42,7 @@ ActiveAdmin.register Platform do
 
   form do |f|
     f.inputs do
-      f.input :supporter
+      f.input :supporter, collection: Platform.find(:all, order: 'name asc')
       f.input :name
       f.input :description
       f.input :url
@@ -50,11 +50,11 @@ ActiveAdmin.register Platform do
       f.input :rank
       f.input :logo, as: :file
       f.input :coverage
-      f.input :occupational_fields
-      f.input :specialized_occupational_fields
-      f.input :kinds
-      f.input :employment_types
-      f.input :features
+      f.input :occupational_fields, collection: Field.find(:all, order: 'name asc')
+      f.input :specialized_occupational_fields, collection: Field.find(:all, order: 'name asc')
+      f.input :kinds, collection: Kind.find(:all, order: 'name asc')
+      f.input :employment_types, collection: EmploymentType.find(:all, order: 'name asc')
+      f.input :features, collection: Feature.find(:all, order: 'name asc')
     end
     f.buttons
   end
