@@ -68,4 +68,6 @@ Jbb::Application.configure do
   $cache = Dalli::Client.new
   config.middleware.insert_before Rack::Lock, Rack::Cache, metastore: $cache,
     entitystore: $cache, allow_reload: false
+
+  config.action_mailer.default_url_options = { host: 'jobboersenfinder.de' }
 end
