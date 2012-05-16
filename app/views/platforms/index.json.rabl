@@ -20,7 +20,7 @@ end
 
 node :logo_url do |platform|
   if Rails.env.production?
-    platform.logo.thumb('160x120>').url(host: "http://assets-#{rand(4)}.jobboersenfinder.at")
+    platform.logo.thumb('160x120>').url(host: "http://assets-#{rand(4)}.old.jobboersenfinder.de")
   else
     platform.logo.thumb('60x120>').url
   end
