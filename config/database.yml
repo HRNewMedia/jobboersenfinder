@@ -12,5 +12,5 @@ test:
   database: jbb_planner_test
 
 production:
-  <<: *common
+  <<: *base
   database: jbb_planner_production
