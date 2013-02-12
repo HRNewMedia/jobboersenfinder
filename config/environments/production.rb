@@ -66,8 +66,8 @@ Jbb::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   $cache = Dalli::Client.new
-  config.middleware.insert_before Rack::Lock, Rack::Cache, metastore: $cache,
-    entitystore: $cache, allow_reload: false
+  # config.middleware.insert_before Rack::Lock, Rack::Cache, metastore: $cache,
+  #   entitystore: $cache, allow_reload: false
 
   config.action_mailer.default_url_options = { host: 'jobboersenfinder.de' }
 end

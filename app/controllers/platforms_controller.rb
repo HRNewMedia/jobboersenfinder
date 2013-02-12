@@ -1,8 +1,8 @@
 class PlatformsController < ApplicationController
   respond_to :json
 
-  caches_page :index
-  caches_action :show
+  # caches_page :index
+  # caches_action :show
 
   expose(:platforms) do
     Platform.published.includes([
